@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+ 
+}
+
+datasource db {
+  provider = "postgresql"
+  
+}
+
+
+
+model Product {
+  id              String      @id @default(cuid())
+  name            String
+  description     String
+  price           Decimal
+  category        String
+  image           String
+  stock           Int
+  nutritionalInfo Json?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  orderItems      OrderItem[]
+  cartItems       CartItem[]
+   categoryId      String?
+  categoryRelation Category?  @relation(fields: [categoryId], references: [id])
+
+}
+
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  slug      String    @unique
+  image     String
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  clerkUserId     String
+  status          OrderStatus @default(PENDING)
+  totalAmount     Decimal
+  stripeSessionId String?
+  createdAt       DateTime    @default(now())
+  orderItems      OrderItem[]
+
+  @@index([clerkUserId])
+}
+
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Decimal
+}
+
+model Cart {
+  id          String     @id @default(cuid())
+  clerkUserId String     @unique
+  items       CartItem[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([clerkUserId])
+}
+
+model CartItem {
+  id        String  @id @default(cuid())
+  cartId    String
+  cart      Cart    @relation(fields: [cartId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+}
+
+
+model User {
+  id             String   @id // This will be the clerkUserId
+  email          String   @unique
+  username       String?  @unique
+  firstName      String?
+  lastName       String?
+  imageUrl       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}

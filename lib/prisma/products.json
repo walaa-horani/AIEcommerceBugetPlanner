@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Organic Avocado",
+        "description": "Creamy, perfectly ripe organic avocados from California.",
+        "price": 2.49,
+        "category": "Produce",
+        "image": "https://images.unsplash.com/photo-1757332914587-6d3e174e0e19?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "stock": 100,
+        "nutritionalInfo": {
+            "calories": 240,
+            "fat": 22,
+            "protein": 3,
+            "carbs": 12
+        }
+    },
+    {
+        "name": "Whole Grain Sourdough Bread",
+        "description": "Artisanal sourdough baked fresh daily with organic whole grain flour.",
+        "price": 6.99,
+        "category": "Bakery",
+        "image": "https://plus.unsplash.com/premium_photo-1701191786485-1cd63bfdaf9e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "stock": 25,
+        "nutritionalInfo": {
+            "calories": 180,
+            "fat": 1,
+            "protein": 6,
+            "carbs": 36
+        }
+    },
+    {
+        "name": "Grass-Fed Ribeye Steak",
+        "description": "Premium grass-fed beef, tender and juicy.",
+        "price": 19.99,
+        "category": "Meat & Seafood",
+        "image": "https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "stock": 40,
+        "nutritionalInfo": {
+            "calories": 650,
+            "fat": 45,
+            "protein": 60,
+            "carbs": 0
+        }
+    },
+    {
+        "name": "Organic Spinach",
+        "description": "Fresh, crisp organic spinach leaves. Perfect for salads and smoothies.",
+        "price": 3.99,
+        "category": "Produce",
+        "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "stock": 150,
+        "nutritionalInfo": {
+            "calories": 23,
+            "fat": 0.4,
+            "protein": 2.9,
+            "carbs": 3.6
+        }
+    },
+    {
+        "name": "Almond Milk (Unsweetened)",
+        "description": "Creamy and nutty almond milk with no added sugars.",
+        "price": 4.49,
+        "category": "Dairy & Alternatives",
+        "image": "https://images.unsplash.com/photo-1628088062854-d1870b4553da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "stock": 80,
+        "nutritionalInfo": {
+            "calories": 30,
+            "fat": 2.5,
+            "protein": 1,
+            "carbs": 1
+        }
+    },
+    {
+        "name": "Free-Range Large Eggs (Dozen)",
+        "description": "Farm-fresh eggs from free-range hens.",
+        "price": 5.99,
+        "category": "Dairy & Eggs",
+        "image": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "stock": 60,
+        "nutritionalInfo": {
+            "calories": 70,
+            "fat": 5,
+            "protein": 6,
+            "carbs": 0
+        }
+    },
+    {
+        "name": "Organic Quinoa",
+        "description": "Nutrient-rich ancient grain, perfect base for bowls and salads.",
+        "price": 7.49,
+        "category": "Pantry",
+        "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "stock": 90,
+        "nutritionalInfo": {
+            "calories": 222,
+            "fat": 4,
+            "protein": 8,
+            "carbs": 39
+        }
+    },
+    {
+        "name": "Wild Caught Salmon Fillet",
+        "description": "Sustainably sourced wild salmon, rich in Omega-3s.",
+        "price": 14.99,
+        "category": "Meat & Seafood",
+        "image": "https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "stock": 35,
+        "nutritionalInfo": {
+            "calories": 350,
+            "fat": 20,
+            "protein": 40,
+            "carbs": 0
+        }
+    },
+    {
+        "name": "Organic Bananas",
+        "description": "Sweet and potassium-rich organic bananas.",
+        "price": 0.69,
+        "category": "Produce",
+        "image": "https://images.unsplash.com/photo-1757332050958-b797a022c910?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "stock": 200,
+        "nutritionalInfo": {
+            "calories": 105,
+            "fat": 0.4,
+            "protein": 1.3,
+            "carbs": 27
+        }
+    },
+    {
+        "name": "Greek Yogurt (Plain)",
+        "description": "Thick and creamy Greek yogurt, high in protein and probiotics.",
+        "price": 5.49,
+        "category": "Dairy & Eggs",
+        "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "stock": 45,
+        "nutritionalInfo": {
+            "calories": 100,
+            "fat": 0,
+            "protein": 18,
+            "carbs": 7
+        }
+    }
+]
