@@ -21,8 +21,8 @@ function Navbar({ cart }: { cart?: any }) {
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <Link href="/" className="hover:text-emerald-600 transition-colors">Home</Link>
-          <Link href="/planner" className="hover:text-emerald-600 transition-colors">AI Planner</Link>
-          <Link href="/products" className="hover:text-emerald-600 transition-colors">Shop</Link>
+
+          <Link href="/admin" className="hover:text-emerald-600 transition-colors">Dashboard</Link>
         </nav>
 
         <div className='flex items-center gap-4'>
