@@ -61,7 +61,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
                                 stripeSessionId: session.id,
                                 status: "PROCESSING",
                                 orderItems: {
-                                    create: cart.items.map((item) => ({
+                                    create: cart.items.map((item: any) => ({
                                         productId: item.productId,
                                         quantity: item.quantity,
                                         price: item.product.price
