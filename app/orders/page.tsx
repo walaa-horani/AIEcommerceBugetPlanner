@@ -54,7 +54,7 @@ export default async function OrdersPage() {
             </h1>
 
             <div className="space-y-6">
-                {orders.map((order) => (
+                {orders.map((order: any) => (
                     <Card key={order.id} className="overflow-hidden border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-200">
                         <CardHeader className="bg-emerald-50/40 border-b border-emerald-100/50 pb-4">
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -88,7 +88,7 @@ export default async function OrdersPage() {
                         </CardHeader>
                         <CardContent className="pt-0">
                             <ul className="divide-y divide-gray-100">
-                                {order.orderItems.map((item) => (
+                                {order.orderItems.map((item: any) => (
                                     <li key={item.id} className="flex items-center gap-4 py-4">
                                         <div className="h-16 w-16 shrink-0 overflow-hidden rounded-md border bg-white shadow-sm">
                                             {item.product.image ? (
