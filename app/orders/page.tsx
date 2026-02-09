@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Package, ShoppingBag, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default async function OrdersPage() {
     const { success, data: orders, error } = await getUserOrders();
@@ -24,7 +25,7 @@ export default async function OrdersPage() {
                     <ShoppingBag size={64} className="text-muted-foreground opacity-50" />
                 </div>
                 <h1 className="text-2xl font-bold text-gray-800">No orders found</h1>
-                <p className="text-muted-foreground">Looks like you haven't placed any orders yet.</p>
+                <p className="text-muted-foreground">Looks like you haven&apos;t placed any orders yet.</p>
                 <Link href="/products">
                     <Button className="mt-4 bg-emerald-600 hover:bg-emerald-700">
                         Start Shopping
@@ -54,7 +55,7 @@ export default async function OrdersPage() {
             </h1>
 
             <div className="space-y-6">
-                {orders.map((order: any) => (
+                {orders.map((order) => (
                     <Card key={order.id} className="overflow-hidden border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-200">
                         <CardHeader className="bg-emerald-50/40 border-b border-emerald-100/50 pb-4">
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -88,11 +89,12 @@ export default async function OrdersPage() {
                         </CardHeader>
                         <CardContent className="pt-0">
                             <ul className="divide-y divide-gray-100">
-                                {order.orderItems.map((item: any) => (
+                                {order.orderItems.map((item) => (
                                     <li key={item.id} className="flex items-center gap-4 py-4">
                                         <div className="h-16 w-16 shrink-0 overflow-hidden rounded-md border bg-white shadow-sm">
                                             {item.product.image ? (
-                                                <img
+                                                <Image
+
                                                     src={item.product.image}
                                                     alt={item.product.name}
                                                     className="h-full w-full object-cover"

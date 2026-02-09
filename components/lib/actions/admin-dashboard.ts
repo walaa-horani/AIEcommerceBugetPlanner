@@ -57,7 +57,7 @@ export async function getFinancialMetrics() {
     //   { name: "Mon", total: 500 }  // اليوم (أحدث شي)
     // ]
 
-    weeklyOrders.forEach((order: { createdAt: Date; totalAmount: any }) => {
+    weeklyOrders.forEach((order: { createdAt: Date; totalAmount: { toNumber: () => number } }) => {
         const dayName = order.createdAt.toLocaleDateString("en-US", {
             weekday: "short",
         });

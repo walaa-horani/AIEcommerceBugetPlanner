@@ -2,8 +2,6 @@
 
 import { z } from "zod";
 import prisma from "@/lib/prisma";
-import { openai } from "@ai-sdk/openai";
-import { generateObject } from "ai";
 
 // Define the schema for the input
 const budgetSchema = z.object({
@@ -106,7 +104,7 @@ export async function createBudgetPlan(
         const aiResponse = result.object;
 
         // 2. Find products in DB based on shopping list (Exact match now since AI uses our names)
-        const matchedProducts: any[] = [];
+        const matchedProducts: { id: string; name: string; price: number; image: string; category: string }[] = [];
         let totalCost = 0;
 
         for (const itemName of aiResponse.shoppingList) {

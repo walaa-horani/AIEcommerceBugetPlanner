@@ -108,7 +108,7 @@ async function page() {
                             <ShieldCheck className="h-6 w-6" />
                         </div>
                         <h3 className="text-xl font-bold text-gray-900">Fresh Guarantee</h3>
-                        <p className="text-gray-600">Not satisfied? We'll refund your money if produce isn't fresh.</p>
+                        <p className="text-gray-600">Not satisfied? We&apos;ll refund your money if produce isn&apos;t fresh.</p>
                     </div>
                 </div>
             </section>
@@ -128,7 +128,7 @@ async function page() {
 
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
 
-                        {featuredProducts.map((product: any) => (
+                        {featuredProducts.map((product) => (
 
                             <Link key={product.id} href={`/products/${product.id}`} className='group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col'>
 

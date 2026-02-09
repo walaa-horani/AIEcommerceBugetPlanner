@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState, useTransition } from 'react'
 import { getCart, removeFromCart } from './lib/actions/cart';
 import { Loader2, ShoppingCart, Trash2 } from 'lucide-react';
@@ -7,9 +8,24 @@ import { useRouter } from 'next/navigation';
 import { createCheckoutSession } from './lib/actions/checkout';
 
 
+interface CartProduct {
+    name: string;
+    price: number | string;
+    image: string;
+}
 
-type CartWithItems = any;
-function CartSheet({ initialCart }: { initialCart?: any }) {
+interface CartItem {
+    id: string;
+    quantity: number;
+    product: CartProduct;
+}
+
+interface CartWithItems {
+    id: string;
+    items: CartItem[];
+}
+
+function CartSheet({ initialCart }: { initialCart?: CartWithItems | null }) {
     const [cart, setCart] = useState<CartWithItems | null>(initialCart || null);
 
     const router = useRouter();
@@ -46,12 +62,12 @@ function CartSheet({ initialCart }: { initialCart?: any }) {
 
     const calculateTotal = () => {
         if (!cart?.items) return 0;
-        return cart.items.reduce((total: number, item: any) => {
+        return cart.items.reduce((total: number, item: CartItem) => {
             return total + (Number(item.product.price) * item.quantity);
         }, 0);
     };
 
-    const itemCount = cart?.items?.reduce((acc: number, item: any) => acc + item.quantity, 0) || 0;
+    const itemCount = cart?.items?.reduce((acc: number, item: CartItem) => acc + item.quantity, 0) || 0;
 
 
     const handleRemove = async (id: string) => {
@@ -107,10 +123,10 @@ function CartSheet({ initialCart }: { initialCart?: any }) {
                         </div>
                     ) : (
                         <ul className="space-y-4">
-                            {cart.items.map((item: any) => (
+                            {cart.items.map((item: CartItem) => (
                                 <li key={item.id} className="flex gap-4 items-center">
                                     <div className="h-16 w-16 bg-gray-100 rounded-md overflow-hidden shrink-0">
-                                        <img src={item.product.image} alt={item.product.name} className="h-full w-full object-cover" />
+                                        <Image src={item.product.image} alt={item.product.name} width={64} height={64} className="h-full w-full object-cover" />
                                     </div>
                                     <div className="flex-1">
                                         <h4 className="font-medium text-sm line-clamp-1">{item.product.name}</h4>

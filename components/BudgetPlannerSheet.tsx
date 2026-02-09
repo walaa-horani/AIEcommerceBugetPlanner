@@ -1,12 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
     Sheet,
-    SheetClose,
     SheetContent,
     SheetDescription,
-    SheetFooter,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
@@ -27,7 +23,7 @@ export function BudgetPlannerSheet() {
                 <SheetHeader>
                     <SheetTitle className="text-emerald-800">AI Budget Planner</SheetTitle>
                     <SheetDescription>
-                        Tell us your budget, and we'll create a meal plan and shopping list for you.
+                        Tell us your budget, and we&apos;ll create a meal plan and shopping list for you.
                     </SheetDescription>
                 </SheetHeader>
                 {/* <div className="grid flex-1 auto-rows-min gap-6 px-4">

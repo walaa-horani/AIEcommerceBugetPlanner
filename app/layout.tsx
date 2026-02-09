@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
+import { Inter, Roboto_Mono, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
@@ -7,15 +7,18 @@ import { UserSync } from "@/components/user-sync";
 import { Toaster } from "sonner";
 import { getCart } from "@/components/lib/actions/cart";
 
-const notoSans = Noto_Sans({ variable: '--font-sans' });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSans = Noto_Sans({
+  variable: '--font-sans',
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
 });
 
@@ -36,7 +39,7 @@ export default async function RootLayout({
 
       <html lang="en" className={notoSans.variable}>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${inter.variable} ${robotoMono.variable} antialiased`}
         >
           <UserSync />
 

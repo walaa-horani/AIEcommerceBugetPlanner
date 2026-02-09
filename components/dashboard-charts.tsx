@@ -45,7 +45,7 @@ function DashboardCharts({ data }: OverviewChartProps) {
                         />
 
                         <Tooltip
-                            formatter={(value: any) => [`$${value}`, "Revenue"]}
+                            formatter={(value: number | undefined) => [`$${value ?? 0}`, "Revenue"]}
                             cursor={{ fill: 'transparent' }}
                         />
 
