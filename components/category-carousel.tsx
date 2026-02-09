@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
+
 import { Category } from "@prisma/client"
 
 import { Card, CardContent } from "@/components/ui/card"
@@ -13,7 +14,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
+
 
 interface CategoryCarouselProps {
     categories: Category[]
@@ -49,9 +50,11 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
                                 <Card className="h-full border-2 border-transparent hover:border-emerald-100 transition-all duration-300 hover:shadow-lg rounded-2xl overflow-hidden bg-white">
                                     <CardContent className="p-0 flex flex-col h-full">
                                         <div className="relative aspect-square overflow-hidden bg-emerald-50">
-                                            <img
+                                            <Image
                                                 src={category.image || "https://via.placeholder.com/150"}
                                                 alt={category.name}
+                                                width={150}
+                                                height={150}
                                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />

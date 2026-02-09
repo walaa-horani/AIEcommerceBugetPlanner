@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { addAllToCart } from './lib/actions/cart';
@@ -6,7 +7,20 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from './ui/button';
 import { Loader2, ShoppingCart } from 'lucide-react';
 
-function AddToCartSection({ plan }: { plan: any }) {
+interface MatchedProduct {
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+}
+
+interface BudgetPlan {
+    matchedProducts: MatchedProduct[];
+    totalCost: number;
+    remainingBudget: number;
+}
+
+function AddToCartSection({ plan }: { plan: BudgetPlan }) {
 
     const [loading, setLoading] = useState(false);
     const router = useRouter();
@@ -16,7 +30,7 @@ function AddToCartSection({ plan }: { plan: any }) {
 
 
         try {
-            const itemsToAdd = plan.matchedProducts.map((p: any) => ({
+            const itemsToAdd = plan.matchedProducts.map((p: MatchedProduct) => ({
                 productId: p.id,
                 quantity: 1 // Default to 1 for now, AI could specify quantity later
             }));
@@ -52,10 +66,10 @@ function AddToCartSection({ plan }: { plan: any }) {
                     <p className="text-sm text-muted-foreground italic">No matching products found in stock.</p>
                 ) : (
                     <ul className="space-y-3">
-                        {plan.matchedProducts.map((p: any) => (
+                        {plan.matchedProducts.map((p: MatchedProduct) => (
                             <li key={p.id} className="flex items-center gap-3">
                                 <div className="h-10 w-10 overflow-hidden rounded bg-gray-100 shrink-0">
-                                    <img src={p.image} alt={p.name} className="h-full w-full object-cover" />
+                                    <Image src={p.image} alt={p.name} width={40} height={40} className="h-full w-full object-cover" />
                                 </div>
                                 <div className="flex-1">
                                     <p className="text-sm font-medium leading-none">{p.name}</p>

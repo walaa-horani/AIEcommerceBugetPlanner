@@ -19,8 +19,8 @@ export async function POST(req: Request) {
             signature,
             process.env.STRIPE_WEBHOOK_SECRET!
         );
-    } catch (error: any) {
-        return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
+    } catch (error: unknown) {
+        return new NextResponse(`Webhook Error: ${error instanceof Error ? error.message : 'Unknown error'}`, { status: 400 });
     }
 
     const session = event.data.object as Stripe.Checkout.Session;
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
                     stripeSessionId: session.id,
                     status: "PROCESSING", // Or PENDING, as per your enum
                     orderItems: {
-                        create: cart.items.map((item: any) => ({
+                        create: cart.items.map((item: { productId: string; quantity: number; product: { price: number | string } }) => ({
                             productId: item.productId,
                             quantity: item.quantity,
                             price: item.product.price // Snapshot the price
@@ -94,9 +94,9 @@ export async function POST(req: Request) {
             // but usually keeping the cart for the user and just emptying items is fine.
             // Your implementation seems to have a permanent cart per user (unique clerkUserId).
 
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error("Error processing webhook:", error);
-            return new NextResponse(`Internal Server Error: ${error.message}`, { status: 500 });
+            return new NextResponse(`Internal Server Error: ${error instanceof Error ? error.message : 'Unknown error'}`, { status: 500 });
         }
     }
 

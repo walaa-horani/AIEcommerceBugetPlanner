@@ -7,7 +7,7 @@ import React from 'react'
 import { Button } from './ui/button'
 import CartSheet from './CartSheet'
 
-function Navbar({ cart }: { cart?: any }) {
+function Navbar({ cart }: { cart?: { id: string; items: { id: string; quantity: number; product: { name: string; price: number | string; image: string } }[] } | null }) {
 
   const { user, isLoaded } = useUser()
   return (
