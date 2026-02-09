@@ -18,7 +18,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
             <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center">
                 <p className="text-red-500">Invalid Session</p>
                 <Button className="mt-4">
-                    <Link href="/">Return to Home</Link>
+                    <Link href="/">Return to Home page</Link>
                 </Button>
             </div>
         )
