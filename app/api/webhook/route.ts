@@ -69,7 +69,7 @@ export async function POST(req: Request) {
                     stripeSessionId: session.id,
                     status: "PROCESSING", // Or PENDING, as per your enum
                     orderItems: {
-                        create: cart.items.map((item: { productId: string; quantity: number; product: { price: number | string } }) => ({
+                        create: cart.items.map((item) => ({
                             productId: item.productId,
                             quantity: item.quantity,
                             price: item.product.price // Snapshot the price

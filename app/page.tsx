@@ -128,7 +128,7 @@ async function page() {
 
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
 
-                        {featuredProducts.map((product: { id: string; name: string; description: string | null; price: number | string; image: string }) => (
+                        {featuredProducts.map((product) => (
 
                             <Link key={product.id} href={`/products/${product.id}`} className='group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col'>
 
